@@ -1,4 +1,4 @@
-import { V as Vector3, M as MathUtils, L as Loader, S as Scene, a as Mesh, B as BoxGeometry, b as MeshNormalMaterial, T as THREE } from './vendor-52fdf8c5.js';
+import { V as Vector3, M as MathUtils, L as Loader, S as Scene, a as Mesh, B as BoxGeometry, b as MeshNormalMaterial, T as THREE } from './vendor-63759a10.js';
 
 /**
  * Copyright 2021 Google LLC
@@ -115,9 +115,8 @@ class ThreeJSOverlayView {
         // LinearEncoding is default for historical reasons
         // https://discourse.threejs.org/t/linearencoding-vs-srgbencoding/23243
         this.renderer.outputEncoding = this.THREE.sRGBEncoding;
-        const { width, height, clientWidth } = gl.canvas;
-        this.renderer.setPixelRatio(width / clientWidth);
-        this.renderer.setSize(width, height, false);
+        const { width, height } = gl.canvas;
+        this.renderer.setViewport(0, 0, width, height);
     }
     onContextLost() {
         if (!this.renderer) {

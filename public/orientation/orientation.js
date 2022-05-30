@@ -1,4 +1,4 @@
-import { L as Loader, S as Scene, A as AxesHelper, T as THREE } from './vendor-4984b3d5.js';
+import { L as Loader, S as Scene, A as AxesHelper, T as THREE } from './vendor-94eeb721.js';
 
 /**
  * Copyright 2021 Google LLC
@@ -115,9 +115,8 @@ class ThreeJSOverlayView {
         // LinearEncoding is default for historical reasons
         // https://discourse.threejs.org/t/linearencoding-vs-srgbencoding/23243
         this.renderer.outputEncoding = this.THREE.sRGBEncoding;
-        const { width, height, clientWidth } = gl.canvas;
-        this.renderer.setPixelRatio(width / clientWidth);
-        this.renderer.setSize(width, height, false);
+        const { width, height } = gl.canvas;
+        this.renderer.setViewport(0, 0, width, height);
     }
     onContextLost() {
         if (!this.renderer) {
