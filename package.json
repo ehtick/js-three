@@ -22,7 +22,10 @@
   "main": "dist/index.umd.js",
   "exports": {
     ".": {
-      "import": "./dist/index.esm.js",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.esm.js"
+      },
       "require": "./dist/index.umd.js",
       "umd": "./dist/index.umd.js",
       "browser": "./dist/index.esm.js"
